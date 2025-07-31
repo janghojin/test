@@ -1,0 +1,23 @@
+hello git action!! 
+# .github/workflows/hello.yml
+
+name: Hello GitHub Actions
+
+on:
+  push:  # push 이벤트 발생 시 실행
+    branches:
+      - main  # main 브랜치에 push될 때 실행
+
+jobs:
+  say_hello:
+    runs-on: ubuntu-latest  # 실행 환경
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Say Hello
+        run: echo "Hello, GitHub Actions!" > hello.txt
+
+      - name: Show the output
+        run: cat hello.txt
